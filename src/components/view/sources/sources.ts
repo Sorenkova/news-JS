@@ -1,20 +1,22 @@
 import './sources.css';
+import { Drawable, Source } from '../../../types';
+import { getElement } from '../../../utils/dom';
 
-class Sources {
-    draw(data) {
+class Sources implements Drawable<Source[]> {
+    public draw(data: Source[]): void {
         const fragment = document.createDocumentFragment();
-        const sourceItemTemp = document.querySelector('#sourceItemTemp');
+        const sourceItemTemp = getElement<HTMLTemplateElement>('#sourceItemTemp');
 
         data.forEach((item) => {
-            const sourceClone = sourceItemTemp.content.cloneNode(true);
+            const sourceClone = document.importNode(sourceItemTemp.content, true);
 
-            sourceClone.querySelector('.source__item-name').textContent = item.name;
-            sourceClone.querySelector('.source__item').setAttribute('data-source-id', item.id);
+            getElement<HTMLElement>('.source__item-name', sourceClone).textContent = item.name;
+            getElement<HTMLElement>('.source__item', sourceClone).setAttribute('data-source-id', item.id);
 
             fragment.append(sourceClone);
         });
 
-        document.querySelector('.sources').append(fragment);
+        getElement<HTMLElement>('.sources').append(fragment);
     }
 }
 
