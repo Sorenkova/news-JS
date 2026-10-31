@@ -1,8 +1,8 @@
 .news__item {
     display: flex;
     flex-direction: column;
+    width: 100%;
     margin: 1rem auto;
-    margin-bottom: 1.6%;
     background: #fff;
     color: #333;
     line-height: 1.4;
@@ -65,12 +65,11 @@
     font-size: 1.7rem;
 }
 
-.news__item .news__description h3 {
-    font-size: 1rem;
-    font-weight: 300;
-    text-transform: uppercase;
-    color: #a2a2a2;
-    margin-top: 5px;
+.news__item .news__description h2 {
+    line-height: 1.1;
+    margin: 0;
+    font-size: 1.7rem;
+    overflow-wrap: anywhere;
 }
 
 .news__item .news__description .news__read-more {
@@ -90,7 +89,9 @@
     margin-left: -10px;
     opacity: 0;
     vertical-align: middle;
-    transition: margin 0.3s, opacity 0.3s;
+    transition:
+        margin 0.3s,
+        opacity 0.3s;
 }
 
 .news__item .news__description .news__read-more a:hover:after {
@@ -100,6 +101,7 @@
 
 .news__item p {
     margin: 1rem 0 0;
+    overflow-wrap: anywhere;
 }
 
 .news__item p:first-of-type {
