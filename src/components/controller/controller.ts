@@ -22,6 +22,10 @@ class AppController extends AppLoader {
                 const sourceId = target.getAttribute('data-source-id');
                 if (sourceId && newsContainer.getAttribute('data-source') !== sourceId) {
                     newsContainer.setAttribute('data-source', sourceId);
+                    newsContainer.querySelectorAll('.source__item.active').forEach((item) => {
+                        item.classList.remove('active');
+                    });
+                    target.classList.add('active');
                     super.getResp<ArticlesResponse>(
                         {
                             endpoint: Endpoint.Everything,
