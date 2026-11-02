@@ -1,35 +1,101 @@
+:root {
+    --bg: #fffbf4;
+    --card: #f4eee1;
+    --line: #d8cfbc;
+    --text: #11120d;
+    --muted: #565449;
+    --accent: #565449;
+    --accent-ink: #fffbf4;
+    --pill: #d8cfbc;
+    --shadow: 0 10px 30px rgba(17, 18, 13, 0.14);
+    --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #11120d;
+        --card: #1b1c15;
+        --line: #2d2e25;
+        --text: #fffbf4;
+        --muted: #b9b3a2;
+        --accent: #d8cfbc;
+        --accent-ink: #11120d;
+        --pill: #2d2e25;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    color: #fff;
-    background: #17181c;
-    font-family: sans-serif;
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.5;
+}
+
+header,
+main,
+footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 header {
-    padding: 10px 30px;
+    padding-top: 28px;
+    padding-bottom: 8px;
 }
 
 header h1 {
-    font-size: 40px;
-    font-weight: 800;
+    margin: 0;
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
 footer {
-    height: 100px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-}
-footer .copyright {
+    gap: 12px 28px;
+    padding-top: 28px;
+    padding-bottom: 40px;
+    border-top: 1px solid var(--line);
     font-size: 14px;
-    color: #333;
+    color: var(--muted);
+}
+
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.footer__logo {
+    display: block;
+    height: 40px;
+    width: auto;
+}
+
+footer .copyright {
+    flex-basis: 100%;
+    margin: 0;
     text-align: center;
+    font-size: 13px;
 }
-footer .copyright a {
-    color: #444;
-}
-footer .copyright a:hover {
-    color: #555;
-}
+
 footer .copyright:before {
     content: '©';
+    margin-right: 4px;
 }
